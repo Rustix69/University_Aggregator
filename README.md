@@ -2,6 +2,10 @@
 
 University Aggregator is a Python-based data collection tool that discovers and extracts information about non-degree cybersecurity certificate programs from official university sources and saves the results in CSV format.
 
+## Architecture Design
+
+![Architecture Design](architecture.png)
+
 ## Installation and Run (Windows with venv)
 
 1. Clone the repository:
