@@ -6,7 +6,12 @@ from google.genai import types
 from dotenv import load_dotenv
 
 from fields import FIELDS
-from utils import build_field_schema, load_prompt, clean_json
+from utils import (
+    build_field_schema,
+    load_prompt,
+    clean_json,
+    apply_discovery_url_overrides,
+)
 from validator import validate_discovery
 
 # ── Config ────────────────────────────────────────────────────────────────────
@@ -41,6 +46,7 @@ def discover_program(college_name: str) -> dict:
     )
 
     discovery = clean_json(response.text)
+    discovery = apply_discovery_url_overrides(college_name, discovery)
 
     print(f"  Program found : {discovery.get('program_name')}")
     print(f"  Program URL   : {discovery.get('program_url')}")

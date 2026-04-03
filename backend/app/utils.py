@@ -5,6 +5,15 @@ from fields import FIELDS
 
 _PLACEHOLDER_RE = re.compile(r"\{([a-zA-Z_][a-zA-Z0-9_]*)\}")
 
+_CANONICAL_DISCOVERY_URLS = {
+    "trident technical college": {
+        "program_url": "https://www.tridenttech.edu/programs/divisions/bt/cybersecurity.html",
+        "tuition_url": "https://www.tridenttech.edu/cost/tuition.html",
+        "faculty_url": "https://www.tridenttech.edu/programs/divisions/bt/center_for_cybersecurity/faculty.html",
+        "admissions_url": "https://www.tridenttech.edu/admissions/index.html",
+    }
+}
+
 
 def build_field_schema() -> str:
     schema = []
@@ -61,3 +70,25 @@ def clean_json(raw_text: str) -> dict:
         print("Recovery failed. Raw snippet:")
         print(json_str[:500])
         raise ValueError(f"Could not parse JSON: {e}")
+
+
+def _normalize_college_name(college_name: str) -> str:
+    return " ".join(str(college_name or "").strip().lower().split())
+
+
+def apply_discovery_url_overrides(college_name: str, discovery: dict) -> dict:
+    """
+    Normalize known institutions to current canonical URLs.
+    Some school websites keep legacy paths live in search results even when they 404.
+    """
+    normalized_name = _normalize_college_name(college_name)
+    overrides = _CANONICAL_DISCOVERY_URLS.get(normalized_name)
+
+    if not overrides:
+        return discovery
+
+    merged = dict(discovery)
+    for key, value in overrides.items():
+        merged[key] = value
+
+    return merged
