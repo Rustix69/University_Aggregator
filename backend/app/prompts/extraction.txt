@@ -7,12 +7,17 @@ Use the URL context tool to read and deeply analyze ALL of the following pages:
 - Faculty Page:    {faculty_url}
 - Admissions Page: {admissions_url}
 
+Additional Context Pages (discovered from the official site):
+{extra_urls_block}
+
 The program you are extracting data for is: "{program_name}"
 
 ==============================
 GLOBAL RULES:
 ==============================
 - Read ALL provided URLs thoroughly before extracting anything.
+- Read ALL additional context URLs when provided, especially curriculum, requirements, admissions, and funding pages.
+- Prioritize context pages that contain curriculum, course, credit, tuition, admissions, and graduation requirement details; treat outreach/news/policy pages as low-priority.
 - Extract ONLY from what is present on those pages. Do NOT guess or assume.
 - If a field is not clearly found on any of the pages, output exactly "Not Found".
 - Focus ONLY on this specific non-degree certificate program, not any degree program.

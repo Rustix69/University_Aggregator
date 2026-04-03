@@ -11,6 +11,7 @@ from utils import (
     load_prompt,
     clean_json,
     apply_discovery_url_overrides,
+    normalize_context_urls,
 )
 from validator import validate_discovery
 
@@ -47,9 +48,13 @@ def discover_program(college_name: str) -> dict:
 
     discovery = clean_json(response.text)
     discovery = apply_discovery_url_overrides(college_name, discovery)
+    context_urls = normalize_context_urls(discovery.get("context_urls", []))
+    discovery["context_urls"] = context_urls
 
     print(f"  Program found : {discovery.get('program_name')}")
     print(f"  Program URL   : {discovery.get('program_url')}")
+    if context_urls:
+        print(f"  Extra context : {len(context_urls)} pages discovered")
 
     return discovery
 
@@ -62,11 +67,17 @@ def extract_program_data(college_name: str, discovery: dict) -> dict:
     tuition_url = discovery.get("tuition_url", "Not Found")
     faculty_url = discovery.get("faculty_url", "Not Found")
     admissions_url = discovery.get("admissions_url", "Not Found")
+    context_urls = normalize_context_urls(discovery.get("context_urls", []))
+    extra_urls_block = "\n".join(f"- {url}" for url in context_urls) if context_urls else "- None"
 
     print(f"  Program page  : {program_url}")
     print(f"  Tuition page  : {tuition_url}")
     print(f"  Faculty page  : {faculty_url}")
     print(f"  Admissions    : {admissions_url}")
+    if context_urls:
+        print("  Extra context :")
+        for url in context_urls:
+            print(f"    - {url}")
 
     prompt = load_prompt(
         EXTRACTION_PROMPT,
@@ -76,6 +87,7 @@ def extract_program_data(college_name: str, discovery: dict) -> dict:
         tuition_url=tuition_url,
         faculty_url=faculty_url,
         admissions_url=admissions_url,
+        extra_urls_block=extra_urls_block,
         schema=build_field_schema()
     )
 

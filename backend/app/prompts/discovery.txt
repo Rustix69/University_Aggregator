@@ -34,6 +34,8 @@ VALIDATION RULES:
 - Confirm the program is explicitly labeled as a "certificate"
 - Confirm it is official and university-run
 - Program can be in catalog OR official extension/professional education pages
+- If you first land on a degree page that references a related cybersecurity certificate, follow and return the direct certificate page URL instead of the degree page URL
+- Prefer admissions URLs that are directly linked from the program or department pages and avoid stale/deprecated links
 - If unsure, mark as invalid
 
 OUTPUT FORMAT:
