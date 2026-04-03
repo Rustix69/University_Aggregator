@@ -108,13 +108,23 @@ if __name__ == "__main__":
     ).strip()
 
     college_target = college_name
+    slug = college_target.replace(" ", "_").lower()
+    output_dir = os.path.join("outputs", slug)
+    os.makedirs(output_dir, exist_ok=True)
+    discovery_path = os.path.join(output_dir, f"{slug}_discovery.csv")
 
     # Stage 1: Discover
     discovery = discover_program(college_target)
 
     is_valid, reason = validate_discovery(discovery)
     if not is_valid:
+        discovery_record = dict(discovery)
+        discovery_record["validation_status"] = "Invalid"
+        discovery_record["validation_reason"] = reason
+        pd.DataFrame([discovery_record]).to_csv(discovery_path, index=False)
+
         print(f"\nInvalid program detected: {reason}")
+        print(f"Discovery saved to: {discovery_path}")
         print("\nNo CSV generated because no valid non-degree certificate was found.")
         exit(0)
 
@@ -131,12 +141,7 @@ if __name__ == "__main__":
     display(df.T)
 
     # Save output
-    slug = college_target.replace(" ", "_").lower()
-    output_dir = os.path.join("outputs", slug)
-    os.makedirs(output_dir, exist_ok=True)
-
     data_path = os.path.join(output_dir, f"{slug}_cybersecurity_full.csv")
-    discovery_path = os.path.join(output_dir, f"{slug}_discovery.csv")
 
     df.to_csv(data_path, index=False)
     print(f"\nData saved to: {data_path}")
