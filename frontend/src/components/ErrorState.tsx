@@ -16,7 +16,7 @@ export function ErrorState({ run }: { run: Run }) {
         {isInvalid && run.result?.validation ? (
           <p>{run.result.validation.reason}</p>
         ) : run.error ? (
-          <p>{run.error}</p>
+          <p>{run.error.message}</p>
         ) : (
           <p>An unexpected error occurred. Please try again.</p>
         )}

@@ -45,5 +45,8 @@ export interface Run {
   updated_at: string;
   finished_at: string | null;
   result: RunResult | null;
-  error: string | null;
+  error: {
+    message: string;
+    traceback?: string;
+  } | null;
 }
