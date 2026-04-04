@@ -4,7 +4,10 @@ from html.parser import HTMLParser
 from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qs, urljoin, urlparse, urlunparse
 from urllib.request import Request, urlopen
-from fields import FIELDS
+try:
+    from .fields import FIELDS
+except ImportError:
+    from fields import FIELDS
 
 
 _PLACEHOLDER_RE = re.compile(r"\{([a-zA-Z_][a-zA-Z0-9_]*)\}")
@@ -147,7 +150,9 @@ class _AnchorParser(HTMLParser):
 def build_field_schema() -> str:
     schema = []
     for key, _, _ in FIELDS:
-        schema.append(f'    "{key}": {{"value": "..."}}')
+        schema.append(
+            f'    "{key}": {{"value": "...", "source_url": "...", "source_quote": "..."}}'
+        )
     return ",\n".join(schema)
 
 
