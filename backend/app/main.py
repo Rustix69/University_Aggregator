@@ -5,24 +5,41 @@ from google import genai
 from google.genai import types
 from dotenv import load_dotenv
 
-from fields import FIELDS
-from utils import (
-    build_field_schema,
-    load_prompt,
-    clean_json,
-    apply_discovery_url_overrides,
-    normalize_context_urls,
-)
-from validator import validate_discovery
+try:
+    from .fields import FIELDS
+    from .utils import (
+        build_field_schema,
+        load_prompt,
+        clean_json,
+        apply_discovery_url_overrides,
+        normalize_context_urls,
+    )
+    from .validator import validate_discovery
+except ImportError:
+    from fields import FIELDS
+    from utils import (
+        build_field_schema,
+        load_prompt,
+        clean_json,
+        apply_discovery_url_overrides,
+        normalize_context_urls,
+    )
+    from validator import validate_discovery
 
 # ── Config ────────────────────────────────────────────────────────────────────
-load_dotenv()
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "YOUR_API_KEY_HERE")
+APP_DIR = os.path.dirname(__file__)
+BACKEND_DIR = os.path.dirname(APP_DIR)
+load_dotenv(os.path.join(BACKEND_DIR, ".env"))
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+
+if not GEMINI_API_KEY:
+    raise ValueError("GEMINI_API_KEY is not set in the .env file")
+    
 MODEL = "gemini-2.5-pro"
 client = genai.Client(api_key=GEMINI_API_KEY)
 
-DISCOVERY_PROMPT = os.path.join("prompts", "discovery.txt")
-EXTRACTION_PROMPT = os.path.join("prompts", "extraction.txt")
+DISCOVERY_PROMPT = os.path.join(APP_DIR, "prompts", "discovery.txt")
+EXTRACTION_PROMPT = os.path.join(APP_DIR, "prompts", "extraction.txt")
 
 
 # ── Stage 1: Discover the correct program + URLs ──────────────────────────────
@@ -103,6 +120,40 @@ def extract_program_data(college_name: str, discovery: dict) -> dict:
     return clean_json(response.text)
 
 
+def normalize_extracted_data(data: dict) -> dict:
+    normalized: dict[str, dict[str, str]] = {}
+
+    for key, _, _ in FIELDS:
+        field = data.get(key, {})
+        if isinstance(field, dict):
+            value = str(field.get("value", "Not Found") or "Not Found").strip()
+            source_url = str(field.get("source_url", "Not Found") or "Not Found").strip()
+            source_quote = str(field.get("source_quote", "Not Found") or "Not Found").strip()
+        else:
+            value = str(field or "Not Found").strip()
+            source_url = "Not Found"
+            source_quote = "Not Found"
+
+        if not value:
+            value = "Not Found"
+        if not source_url:
+            source_url = "Not Found"
+        if not source_quote:
+            source_quote = "Not Found"
+
+        if value == "Not Found":
+            source_url = "Not Found"
+            source_quote = "Not Found"
+
+        normalized[key] = {
+            "value": value,
+            "source_url": source_url,
+            "source_quote": source_quote,
+        }
+
+    return normalized
+
+
 # ── Build DataFrame ───────────────────────────────────────────────────────────
 def build_dataframe(data: dict) -> pd.DataFrame:
     row = {}
@@ -119,53 +170,82 @@ def build_dataframe(data: dict) -> pd.DataFrame:
     return pd.DataFrame([row])
 
 
+def run_pipeline(college_name: str, save_csv: bool = True) -> dict:
+    college_target = (college_name or "").strip()
+    if not college_target:
+        raise ValueError("College name is required")
+
+    slug = college_target.replace(" ", "_").lower()
+    output_dir = os.path.join(APP_DIR, "outputs", slug)
+    os.makedirs(output_dir, exist_ok=True)
+    discovery_path = os.path.join(output_dir, f"{slug}_discovery.csv")
+    data_path = os.path.join(output_dir, f"{slug}_cybersecurity_full.csv")
+
+    discovery = discover_program(college_target)
+
+    is_valid, reason = validate_discovery(discovery)
+    discovery_record = dict(discovery)
+    discovery_record["validation_status"] = "Valid" if is_valid else "Invalid"
+    discovery_record["validation_reason"] = reason
+
+    if save_csv:
+        pd.DataFrame([discovery_record]).to_csv(discovery_path, index=False)
+
+    if not is_valid:
+        return {
+            "status": "invalid_program",
+            "college_name": college_target,
+            "slug": slug,
+            "validation": {"is_valid": False, "reason": reason},
+            "discovery": discovery_record,
+            "fields": {},
+            "csv_paths": {
+                "discovery_csv": discovery_path if save_csv else None,
+                "full_csv": None,
+            },
+        }
+
+    extracted_json = extract_program_data(college_target, discovery)
+    normalized_fields = normalize_extracted_data(extracted_json)
+    df = build_dataframe(normalized_fields)
+
+    if save_csv:
+        df.to_csv(data_path, index=False)
+
+    return {
+        "status": "completed",
+        "college_name": college_target,
+        "slug": slug,
+        "validation": {"is_valid": True, "reason": reason},
+        "discovery": discovery_record,
+        "fields": normalized_fields,
+        "row": df.iloc[0].to_dict(),
+        "csv_paths": {
+            "discovery_csv": discovery_path if save_csv else None,
+            "full_csv": data_path if save_csv else None,
+        },
+    }
+
+
 # ── Entry point ───────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     college_name = input(
         "Enter the college name (e.g., 'Stanford University'): "
     ).strip()
+    result = run_pipeline(college_name, save_csv=True)
 
-    college_target = college_name
-    slug = college_target.replace(" ", "_").lower()
-    output_dir = os.path.join("outputs", slug)
-    os.makedirs(output_dir, exist_ok=True)
-    discovery_path = os.path.join(output_dir, f"{slug}_discovery.csv")
-
-    # Stage 1: Discover
-    discovery = discover_program(college_target)
-
-    is_valid, reason = validate_discovery(discovery)
-    if not is_valid:
-        discovery_record = dict(discovery)
-        discovery_record["validation_status"] = "Invalid"
-        discovery_record["validation_reason"] = reason
-        pd.DataFrame([discovery_record]).to_csv(discovery_path, index=False)
-
-        print(f"\nInvalid program detected: {reason}")
-        print(f"Discovery saved to: {discovery_path}")
+    if result["status"] == "invalid_program":
+        print(f"\nInvalid program detected: {result['validation']['reason']}")
+        print(f"Discovery saved to: {result['csv_paths']['discovery_csv']}")
         print("\nNo CSV generated because no valid non-degree certificate was found.")
-        exit(0)
+        raise SystemExit(0)
 
-    print(f"\nValidated program: {discovery['program_name']}")
+    print(f"\nValidated program: {result['discovery']['program_name']}")
 
-    # Stage 2: Extract
-    extracted_json = extract_program_data(college_target, discovery)
-
-    # Build DataFrame
-    df = build_dataframe(extracted_json)
-
+    df = build_dataframe(result["fields"])
     pd.set_option("display.max_columns", None)
     pd.set_option("display.max_colwidth", 80)
     display(df.T)
 
-    # Save output
-    data_path = os.path.join(output_dir, f"{slug}_cybersecurity_full.csv")
-
-    df.to_csv(data_path, index=False)
-    print(f"\nData saved to: {data_path}")
-
-    discovery_record = dict(discovery)
-    discovery_record["validation_status"] = "Valid"
-    discovery_record["validation_reason"] = reason
-    pd.DataFrame([discovery_record]).to_csv(discovery_path, index=False)
-    print(f"Discovery saved to: {discovery_path}")
+    print(f"\nData saved to: {result['csv_paths']['full_csv']}")
+    print(f"Discovery saved to: {result['csv_paths']['discovery_csv']}")

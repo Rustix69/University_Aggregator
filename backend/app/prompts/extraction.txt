@@ -173,6 +173,13 @@ OUTPUT FORMAT:
 ==============================
 Return ONLY a valid JSON object. No markdown, no backticks, no extra text.
 
+For EVERY field, return this object format:
+- "value": extracted field value or "Not Found"
+- "source_url": exact URL where the value was found, or "Not Found"
+- "source_quote": short verbatim evidence quote (max ~300 chars), or "Not Found"
+
+If a field value is "Not Found", set both source fields to "Not Found".
+
 SCHEMA:
 {{
 {schema}
