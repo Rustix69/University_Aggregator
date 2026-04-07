@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Copy, Check } from "lucide-react";
+import { appendTextFragment } from "@/lib/textFragment";
 
 interface SourceViewerDrawerProps {
   open: boolean;
@@ -14,6 +15,12 @@ interface SourceViewerDrawerProps {
 export function SourceViewerDrawer({ open, onOpenChange, url, quote, fieldLabel }: SourceViewerDrawerProps) {
   const [iframeFailed, setIframeFailed] = useState(false);
   const [copied, setCopied] = useState(false);
+
+  const urlWithHighlight = useMemo(() => appendTextFragment(url, quote), [url, quote]);
+
+  useEffect(() => {
+    if (open) setIframeFailed(false);
+  }, [open, urlWithHighlight]);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(quote);
@@ -30,14 +37,17 @@ export function SourceViewerDrawer({ open, onOpenChange, url, quote, fieldLabel 
         </SheetHeader>
 
         <div className="mt-4 space-y-4">
-          {/* Iframe or fallback */}
           <div className="border rounded-md overflow-hidden" style={{ height: 350 }}>
             {!iframeFailed ? (
               <iframe
-                src={url}
+                key={urlWithHighlight}
+                src={urlWithHighlight}
                 title="Source viewer"
                 className="w-full h-full"
-                sandbox="allow-same-origin"
+                // allow-scripts: pages must run JS for DOM to contain the quoted text; otherwise #:~:text has nothing to match.
+                // allow-same-origin: lets same-origin frames behave normally; cross-origin sources still cannot access the parent.
+                sandbox="allow-scripts allow-same-origin"
+                referrerPolicy="strict-origin-when-cross-origin"
                 onError={() => setIframeFailed(true)}
                 onLoad={(e) => {
                   try {
@@ -55,7 +65,7 @@ export function SourceViewerDrawer({ open, onOpenChange, url, quote, fieldLabel 
               <div className="flex flex-col items-center justify-center h-full gap-3 text-muted-foreground">
                 <p className="text-sm">This page cannot be embedded (blocked by the source site).</p>
                 <Button variant="outline" size="sm" asChild>
-                  <a href={url} target="_blank" rel="noopener noreferrer">
+                  <a href={urlWithHighlight} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="h-4 w-4 mr-1" />
                     Open in new tab
                   </a>
@@ -73,13 +83,11 @@ export function SourceViewerDrawer({ open, onOpenChange, url, quote, fieldLabel 
                 {copied ? "Copied" : "Copy Quote"}
               </Button>
             </div>
-            <div className="rounded-md border p-3 text-sm">
-              <mark className="bg-accent px-0.5">{quote}</mark>
-            </div>
+            <div className="rounded-md border p-3 text-sm">{quote}</div>
           </div>
 
           <Button variant="outline" className="w-full" asChild>
-            <a href={url} target="_blank" rel="noopener noreferrer">
+            <a href={urlWithHighlight} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="h-4 w-4 mr-1" />
               Open in new tab
             </a>

@@ -35,6 +35,10 @@ export interface RunResult {
     discovery_csv: string;
     full_csv: string;
   };
+  /** Non–Not Found field count after normalization (completed runs only). */
+  found_field_count?: number;
+  /** True when a second full pipeline run was performed due to low field count. */
+  retry_applied?: boolean;
 }
 
 export interface Run {

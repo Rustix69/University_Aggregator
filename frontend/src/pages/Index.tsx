@@ -26,7 +26,7 @@ export default function Index() {
       } catch (e) {
         console.error("Polling error:", e);
       }
-    }, 2000);
+    },5000);
     return () => clearInterval(interval);
   }, [run, isTerminal]);
 
