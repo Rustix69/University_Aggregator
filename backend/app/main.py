@@ -170,6 +170,19 @@ def build_dataframe(data: dict) -> pd.DataFrame:
     return pd.DataFrame([row])
 
 
+# If fewer than this many fields are found (after JSON normalization), run the full pipeline once more.
+MIN_FOUND_FIELDS_BEFORE_RETRY = 10
+
+
+def count_found_fields(normalized_fields: dict) -> int:
+    """Count fields whose value is not 'Not Found' (post-normalization)."""
+    return sum(
+        1
+        for entry in normalized_fields.values()
+        if isinstance(entry, dict) and entry.get("value") != "Not Found"
+    )
+
+
 def run_pipeline(college_name: str, save_csv: bool = True) -> dict:
     college_target = (college_name or "").strip()
     if not college_target:
@@ -181,50 +194,70 @@ def run_pipeline(college_name: str, save_csv: bool = True) -> dict:
     discovery_path = os.path.join(output_dir, f"{slug}_discovery.csv")
     data_path = os.path.join(output_dir, f"{slug}_cybersecurity_full.csv")
 
-    discovery = discover_program(college_target)
+    def run_once() -> dict:
+        discovery = discover_program(college_target)
 
-    is_valid, reason = validate_discovery(discovery)
-    discovery_record = dict(discovery)
-    discovery_record["validation_status"] = "Valid" if is_valid else "Invalid"
-    discovery_record["validation_reason"] = reason
+        is_valid, reason = validate_discovery(discovery)
+        discovery_record = dict(discovery)
+        discovery_record["validation_status"] = "Valid" if is_valid else "Invalid"
+        discovery_record["validation_reason"] = reason
 
-    if save_csv:
-        pd.DataFrame([discovery_record]).to_csv(discovery_path, index=False)
+        if save_csv:
+            pd.DataFrame([discovery_record]).to_csv(discovery_path, index=False)
 
-    if not is_valid:
+        if not is_valid:
+            return {
+                "status": "invalid_program",
+                "college_name": college_target,
+                "slug": slug,
+                "validation": {"is_valid": False, "reason": reason},
+                "discovery": discovery_record,
+                "fields": {},
+                "csv_paths": {
+                    "discovery_csv": discovery_path if save_csv else None,
+                    "full_csv": None,
+                },
+            }
+
+        extracted_json = extract_program_data(college_target, discovery)
+        normalized_fields = normalize_extracted_data(extracted_json)
+        df = build_dataframe(normalized_fields)
+
+        if save_csv:
+            df.to_csv(data_path, index=False)
+
         return {
-            "status": "invalid_program",
+            "status": "completed",
             "college_name": college_target,
             "slug": slug,
-            "validation": {"is_valid": False, "reason": reason},
+            "validation": {"is_valid": True, "reason": reason},
             "discovery": discovery_record,
-            "fields": {},
+            "fields": normalized_fields,
+            "row": df.iloc[0].to_dict(),
             "csv_paths": {
                 "discovery_csv": discovery_path if save_csv else None,
-                "full_csv": None,
+                "full_csv": data_path if save_csv else None,
             },
         }
 
-    extracted_json = extract_program_data(college_target, discovery)
-    normalized_fields = normalize_extracted_data(extracted_json)
-    df = build_dataframe(normalized_fields)
+    result = run_once()
+    retry_applied = False
 
-    if save_csv:
-        df.to_csv(data_path, index=False)
+    if result.get("status") == "completed":
+        found_n = count_found_fields(result["fields"])
+        if found_n < MIN_FOUND_FIELDS_BEFORE_RETRY:
+            print(
+                f"\n[Retry] Only {found_n} fields found "
+                f"(threshold {MIN_FOUND_FIELDS_BEFORE_RETRY}); running full pipeline once more..."
+            )
+            result = run_once()
+            retry_applied = True
 
-    return {
-        "status": "completed",
-        "college_name": college_target,
-        "slug": slug,
-        "validation": {"is_valid": True, "reason": reason},
-        "discovery": discovery_record,
-        "fields": normalized_fields,
-        "row": df.iloc[0].to_dict(),
-        "csv_paths": {
-            "discovery_csv": discovery_path if save_csv else None,
-            "full_csv": data_path if save_csv else None,
-        },
-    }
+        if result.get("status") == "completed":
+            result["found_field_count"] = count_found_fields(result["fields"])
+            result["retry_applied"] = retry_applied
+
+    return result
 
 
 # ── Entry point ───────────────────────────────────────────────────────────────
