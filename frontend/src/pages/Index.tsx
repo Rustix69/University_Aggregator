@@ -6,9 +6,9 @@ import { RunStatusPanel } from "@/components/RunStatusPanel";
 import { ProgramSummary } from "@/components/ProgramSummary";
 import { DiscoveryLinks } from "@/components/DiscoveryLinks";
 import { FieldsTable } from "@/components/FieldsTable";
-import { CsvPaths } from "@/components/CsvPaths";
 import { EmptyState } from "@/components/EmptyState";
 import { ErrorState } from "@/components/ErrorState";
+import { Button } from "@/components/ui/button";
 
 export default function Index() {
   const [run, setRun] = useState<Run | null>(null);
@@ -45,6 +45,28 @@ export default function Index() {
   const isCompleted = run?.status === "completed" && run.result;
   const isFailed = run?.status === "failed" || run?.status === "invalid_program";
 
+  const handleDownloadJson = useCallback(() => {
+    if (!run?.result) return;
+
+    const jsonData = JSON.stringify(run.result, null, 2);
+    const blob = new Blob([jsonData], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const safeCollegeName = (run.result.college_name || run.college_name || "college")
+      .replace(/[<>:"/\\|?*\x00-\x1F]/g, "")
+      .trim()
+      .replace(/\s+/g, "_");
+    const filename = `${safeCollegeName || "college"}.json`;
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }, [run]);
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
@@ -78,7 +100,12 @@ export default function Index() {
             
 
             <div>
-              <h2 className="text-lg font-semibold mb-3">Extracted Fields</h2>
+              <div className="mb-3 flex items-center justify-between gap-3">
+                <h2 className="text-lg font-semibold">Extracted Fields</h2>
+                <Button type="button" variant="outline" size="sm" onClick={handleDownloadJson}>
+                  Download
+                </Button>
+              </div>
               <FieldsTable fields={run.result.fields} />
             </div>
           </div>
