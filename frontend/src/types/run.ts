@@ -31,6 +31,7 @@ export interface RunResult {
   discovery: Discovery;
   fields: Record<string, FieldEntry>;
   row: Record<string, string>;
+  programs?: ProgramResult[];
   csv_paths: {
     discovery_csv: string;
     full_csv: string;
@@ -39,6 +40,14 @@ export interface RunResult {
   found_field_count?: number;
   /** True when a second full pipeline run was performed due to low field count. */
   retry_applied?: boolean;
+}
+
+export interface ProgramResult {
+  program_name: string;
+  program_url: string;
+  discovery: Discovery;
+  fields: Record<string, FieldEntry>;
+  row: Record<string, string>;
 }
 
 export interface Run {

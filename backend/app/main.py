@@ -1,4 +1,5 @@
 import os
+from urllib.parse import urlparse
 import pandas as pd
 from IPython.display import display
 from google import genai
@@ -183,6 +184,61 @@ def count_found_fields(normalized_fields: dict) -> int:
     )
 
 
+def _program_name_from_url(url: str) -> str:
+    path = urlparse(str(url or "")).path.strip("/")
+    if not path:
+        return "Unknown Program"
+    slug = path.split("/")[-1]
+    if not slug:
+        return "Unknown Program"
+    return slug.replace("-", " ").replace("_", " ").strip().title()
+
+
+def _is_secondary_program_candidate(url: str) -> bool:
+    text = str(url or "").lower()
+    if not text:
+        return False
+    if "cyber" not in text:
+        return False
+    if "certificate" not in text:
+        return False
+    path_slug = urlparse(text).path.strip("/").split("/")[-1]
+    if any(
+        hint in path_slug
+        for hint in ("associate", "degree", "bachelor", "master", "doctoral", "phd")
+    ):
+        return False
+    return text.startswith("http://") or text.startswith("https://")
+
+
+def _build_program_discoveries(discovery_record: dict, max_programs: int = 2) -> list[dict]:
+    primary = dict(discovery_record or {})
+    programs: list[dict] = []
+    seen_urls: set[str] = set()
+
+    primary_url = str(primary.get("program_url", "")).strip()
+    if primary_url:
+        seen_urls.add(primary_url)
+    programs.append(primary)
+
+    context_urls = normalize_context_urls(primary.get("context_urls", []))
+    for url in context_urls:
+        if len(programs) >= max_programs:
+            break
+        if url in seen_urls:
+            continue
+        if not _is_secondary_program_candidate(url):
+            continue
+
+        candidate = dict(primary)
+        candidate["program_url"] = url
+        candidate["program_name"] = _program_name_from_url(url)
+        seen_urls.add(url)
+        programs.append(candidate)
+
+    return programs
+
+
 def run_pipeline(college_name: str, save_csv: bool = True) -> dict:
     college_target = (college_name or "").strip()
     if not college_target:
@@ -213,18 +269,38 @@ def run_pipeline(college_name: str, save_csv: bool = True) -> dict:
                 "validation": {"is_valid": False, "reason": reason},
                 "discovery": discovery_record,
                 "fields": {},
+                "programs": [],
                 "csv_paths": {
                     "discovery_csv": discovery_path if save_csv else None,
                     "full_csv": None,
                 },
             }
 
-        extracted_json = extract_program_data(college_target, discovery)
-        normalized_fields = normalize_extracted_data(extracted_json)
-        df = build_dataframe(normalized_fields)
+        program_discoveries = _build_program_discoveries(discovery_record, max_programs=2)
+        program_results: list[dict] = []
+
+        for program_discovery in program_discoveries:
+            extracted_json = extract_program_data(college_target, program_discovery)
+            normalized_fields = normalize_extracted_data(extracted_json)
+            df = build_dataframe(normalized_fields)
+
+            program_results.append(
+                {
+                    "program_name": program_discovery.get("program_name"),
+                    "program_url": program_discovery.get("program_url"),
+                    "discovery": program_discovery,
+                    "fields": normalized_fields,
+                    "row": df.iloc[0].to_dict(),
+                }
+            )
+
+        primary_program = program_results[0]
+        primary_fields = primary_program["fields"]
+        primary_row = primary_program["row"]
+        primary_df = build_dataframe(primary_fields)
 
         if save_csv:
-            df.to_csv(data_path, index=False)
+            primary_df.to_csv(data_path, index=False)
 
         return {
             "status": "completed",
@@ -232,8 +308,9 @@ def run_pipeline(college_name: str, save_csv: bool = True) -> dict:
             "slug": slug,
             "validation": {"is_valid": True, "reason": reason},
             "discovery": discovery_record,
-            "fields": normalized_fields,
-            "row": df.iloc[0].to_dict(),
+            "fields": primary_fields,
+            "row": primary_row,
+            "programs": program_results,
             "csv_paths": {
                 "discovery_csv": discovery_path if save_csv else None,
                 "full_csv": data_path if save_csv else None,

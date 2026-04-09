@@ -1,0 +1,689 @@
+
+{
+    "run_id": "cf7395aa-62d8-4509-af46-ea44309f6408",
+    "college_name": "Cypress College",
+    "status": "completed",
+    "created_at": "2026-04-09T08:22:32.306090+00:00",
+    "updated_at": "2026-04-09T08:26:39.555520+00:00",
+    "finished_at": "2026-04-09T08:26:39.555520+00:00",
+    "result": {
+      "status": "completed",
+      "college_name": "Cypress College",
+      "slug": "cypress_college",
+      "validation": {
+        "is_valid": true,
+        "reason": "OK"
+      },
+      "discovery": {
+        "program_name": "Cybersecurity Certificate",
+        "program_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+        "tuition_url": "https://www.cypresscollege.edu/admissions-records/enrollment-fees/",
+        "faculty_url": "https://catalog.nocccd.edu/cypress-college/faculty-and-administration/",
+        "admissions_url": "https://www.cypresscollege.edu/admissions-records/",
+        "program_type": "Undergraduate Certificate",
+        "is_valid_certificate": "Yes",
+        "rejection_reason": null,
+        "context_urls": [
+          "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+          "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-associate-in-science-degree/",
+          "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/devseops-development-security-and-operations-certificate/",
+          "https://catalog.nocccd.edu/cypress-college/degrees-certificates/aviation-travel-careers/homeland-transportation-security-certificate/",
+          "https://catalog.nocccd.edu/cypress-college/degrees-certificates/administration-justice/career-technical-education-homeland-security-associate-in-science-degree/",
+          "https://catalog.nocccd.edu/cypress-college/degrees-certificates/www.assist.org",
+          "https://catalog.nocccd.edu/cypress-college/degrees-certificates/theater-arts/",
+          "https://catalog.nocccd.edu/cypress-college/degrees-certificates/spanish/"
+        ],
+        "validation_status": "Valid",
+        "validation_reason": "OK"
+      },
+      "fields": {
+        "institution": {
+          "value": "Cypress College",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_quote": "Cybersecurity Certificate \u003C Cypress College"
+        },
+        "program_name": {
+          "value": "Cybersecurity Certificate",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_quote": "Cybersecurity Certificate"
+        },
+        "admissions_contact": {
+          "value": "admissions@cypresscollege.edu",
+          "source_url": "https://www.cypresscollege.edu/admissions-records/",
+          "source_quote": "E: admissions@cypresscollege.edu"
+        },
+        "program_type": {
+          "value": "Undergraduate Certificate",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_quote": "The Cybersecurity Certificate prepares students to recognize Cybersecurity threats and implement procedures to protect computers, networks, programs and data from unintended or unauthorized access, change or destruction."
+        },
+        "program_focus": {
+          "value": "Defensive Cyber Operations, Offensive Cyber Operations",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_quote": "Demonstrate competency applying Cybersecurity fundamentals and best practices in various computing platforms and infrastructure. Demonstrate competency in using various cybersecurity tools related to secure architecture, vulnerability management, intrusion detection and prevention, and incident response."
+        },
+        "program_focus_details": {
+          "value": "The Cybersecurity Certificate prepares students to recognize Cybersecurity threats and implement procedures to protect computers, networks, programs and data from unintended or unauthorized access, change or destruction.",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_quote": "The Cybersecurity Certificate prepares students to recognize Cybersecurity threats and implement procedures to protect computers, networks, programs and data from unintended or unauthorized access, change or destruction."
+        },
+        "program_level": {
+          "value": "Undergraduate Certificate",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_quote": "The Cybersecurity Certificate prepares students to recognize Cybersecurity threats and implement procedures to protect computers, networks, programs and data from unintended or unauthorized access, change or destruction."
+        },
+        "credential_awarded": {
+          "value": "Cybersecurity Certificate",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_quote": "Cybersecurity Certificate"
+        },
+        "prerequisites": {
+          "value": "Not Found",
+          "source_url": "Not Found",
+          "source_quote": "Not Found"
+        },
+        "num_courses": {
+          "value": "5",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_quote": "Required courses are listed in suggested sequence: (17 units) CIS 190 C IT and Cybersecurity Funds 4 CIS 230 C Cisco Networking 1 4 CIS 195 C Network Security 3 CIS 196 C Ethical Hacking 3 CIS 247 C Python Programming 3"
+        },
+        "courses": {
+          "value": "IT and Cybersecurity Funds, Cisco Networking 1, Network Security, Ethical Hacking, Python Programming",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_quote": "CIS 190 C IT and Cybersecurity Funds 4 CIS 230 C Cisco Networking 1 4 CIS 195 C Network Security 3 CIS 196 C Ethical Hacking 3 CIS 247 C Python Programming 3"
+        },
+        "notable_courses": {
+          "value": "Required Courses:\nCIS 190 C: IT and Cybersecurity Funds\nCIS 230 C: Cisco Networking 1\nCIS 195 C: Network Security\nCIS 196 C: Ethical Hacking\nCIS 247 C: Python Programming",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_quote": "Code Title Units Required courses are listed in suggested sequence: (17 units) CIS 190 C IT and Cybersecurity Funds 4 CIS 230 C Cisco Networking 1 4 CIS 195 C Network Security 3 CIS 196 C Ethical Hacking 3 CIS 247 C Python Programming 3"
+        },
+        "class_duration": {
+          "value": "17 Units",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_quote": "This certificate requires a total of 17 units."
+        },
+        "min_completion_time": {
+          "value": "Not Found",
+          "source_url": "Not Found",
+          "source_quote": "Not Found"
+        },
+        "program_flexibility": {
+          "value": "Not Found",
+          "source_url": "Not Found",
+          "source_quote": "Not Found"
+        },
+        "cost_per_class_short": {
+          "value": "$46 per unit",
+          "source_url": "https://www.cypresscollege.edu/admissions-records/enrollment-fees/",
+          "source_quote": "Enrollment Fee: $46 per unit (Waived for CCPG recipients)"
+        },
+        "cost_per_class_long": {
+          "value": "$396 per unit",
+          "source_url": "https://www.cypresscollege.edu/admissions-records/enrollment-fees/",
+          "source_quote": "Non-Resident Fees: $396 per unit, plus $25 capital outlay fee per Ed Code 76141"
+        },
+        "total_cost": {
+          "value": "Not Found",
+          "source_url": "Not Found",
+          "source_quote": "Not Found"
+        },
+        "delivery_mode": {
+          "value": "Not Found",
+          "source_url": "Not Found",
+          "source_quote": "Not Found"
+        },
+        "in_person_requirement": {
+          "value": "Not Found",
+          "source_url": "Not Found",
+          "source_quote": "Not Found"
+        },
+        "enrollment_options": {
+          "value": "Not Found",
+          "source_url": "Not Found",
+          "source_quote": "Not Found"
+        },
+        "program_managed_by": {
+          "value": "Business and Computer Information Systems",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+          "source_quote": "Division: Business and Computer Information Systems"
+        },
+        "nsa_cae_cd_accredited": {
+          "value": "Not Found",
+          "source_url": "Not Found",
+          "source_quote": "Not Found"
+        },
+        "cert_prep": {
+          "value": "Yes, prepares for ITF+, A+, Security+, and CySA+.",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_quote": "It will also enhance students' chances to pursue a professional career in Cybersecurity by preparing them for industry-recognized certificates such as ITF+, A+, Security+, and CySA+."
+        },
+        "stackable": {
+          "value": "Not Found",
+          "source_url": "Not Found",
+          "source_quote": "Not Found"
+        },
+        "stackable_details": {
+          "value": "Not Found",
+          "source_url": "Not Found",
+          "source_quote": "Not Found"
+        },
+        "num_fulltime_faculty": {
+          "value": "Not Found",
+          "source_url": "Not Found",
+          "source_quote": "Not Found"
+        },
+        "faculty_details": {
+          "value": "Not Found",
+          "source_url": "Not Found",
+          "source_quote": "Not Found"
+        },
+        "cert_graduation_requirements": {
+          "value": "To earn a certificate, complete the required courses as listed with a grade of C or better. At least 50% of all course work must be completed at Cypress College.",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_quote": "To earn a certificate, complete the required courses as listed with a grade of C or better. At least 50% of all course work must be completed at Cypress College."
+        },
+        "program_curriculum": {
+          "value": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_quote": "Cybersecurity Certificate"
+        },
+        "scholarships_available": {
+          "value": "Not Found",
+          "source_url": "Not Found",
+          "source_quote": "Not Found"
+        },
+        "finance_options": {
+          "value": "Financial Aid Eligible",
+          "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "source_quote": "Financial Aid Eligible"
+        }
+      },
+      "row": {
+        "Institution": "Cypress College",
+        "Program Name": "Cybersecurity Certificate",
+        "Admissions Contact": "admissions@cypresscollege.edu",
+        "Program Type": "Undergraduate Certificate",
+        "Program Focus": "Defensive Cyber Operations, Offensive Cyber Operations",
+        "Program Focus in Details": "The Cybersecurity Certificate prepares students to recognize Cybersecurity threats and implement procedures to protect computers, networks, programs and data from unintended or unauthorized access, change or destruction.",
+        "Program Level": "Undergraduate Certificate",
+        "Credential Awarded": "Cybersecurity Certificate",
+        "Prerequisites": "Not Found",
+        "# Courses": "5",
+        "Courses": "IT and Cybersecurity Funds, Cisco Networking 1, Network Security, Ethical Hacking, Python Programming",
+        "Notable Courses": "Required Courses:\nCIS 190 C: IT and Cybersecurity Funds\nCIS 230 C: Cisco Networking 1\nCIS 195 C: Network Security\nCIS 196 C: Ethical Hacking\nCIS 247 C: Python Programming",
+        "Class Duration": "17 Units",
+        "Min Completion Time": "Not Found",
+        "Program Flexibility": "Not Found",
+        "Cost Per Class Short": "$46 per unit",
+        "Cost Per Class Long": "$396 per unit",
+        "Total Cost": "Not Found",
+        "Delivery Mode": "Not Found",
+        "In-Person Requirement (Yes or No)": "Not Found",
+        "Enrollment Options": "Not Found",
+        "Program Managed By": "Business and Computer Information Systems",
+        "NSA CAE-CD Accredited?": "Not Found",
+        "Cert Prep": "Yes, prepares for ITF+, A+, Security+, and CySA+.",
+        "Stackable": "Not Found",
+        "Stackable Details": "Not Found",
+        "# of Full-time Faculty": "Not Found",
+        "Faculty Details": "Not Found",
+        "Certificate Graduation Requirements": "To earn a certificate, complete the required courses as listed with a grade of C or better. At least 50% of all course work must be completed at Cypress College.",
+        "Program Curriculum": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+        "Scholarships Available": "Not Found",
+        "Finance Options": "Financial Aid Eligible"
+      },
+      "programs": [
+        {
+          "program_name": "Cybersecurity Certificate",
+          "program_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+          "discovery": {
+            "program_name": "Cybersecurity Certificate",
+            "program_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+            "tuition_url": "https://www.cypresscollege.edu/admissions-records/enrollment-fees/",
+            "faculty_url": "https://catalog.nocccd.edu/cypress-college/faculty-and-administration/",
+            "admissions_url": "https://www.cypresscollege.edu/admissions-records/",
+            "program_type": "Undergraduate Certificate",
+            "is_valid_certificate": "Yes",
+            "rejection_reason": null,
+            "context_urls": [
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-associate-in-science-degree/",
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/devseops-development-security-and-operations-certificate/",
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/aviation-travel-careers/homeland-transportation-security-certificate/",
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/administration-justice/career-technical-education-homeland-security-associate-in-science-degree/",
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/www.assist.org",
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/theater-arts/",
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/spanish/"
+            ],
+            "validation_status": "Valid",
+            "validation_reason": "OK"
+          },
+          "fields": {
+            "institution": {
+              "value": "Cypress College",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_quote": "Cybersecurity Certificate \u003C Cypress College"
+            },
+            "program_name": {
+              "value": "Cybersecurity Certificate",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_quote": "Cybersecurity Certificate"
+            },
+            "admissions_contact": {
+              "value": "admissions@cypresscollege.edu",
+              "source_url": "https://www.cypresscollege.edu/admissions-records/",
+              "source_quote": "E: admissions@cypresscollege.edu"
+            },
+            "program_type": {
+              "value": "Undergraduate Certificate",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_quote": "The Cybersecurity Certificate prepares students to recognize Cybersecurity threats and implement procedures to protect computers, networks, programs and data from unintended or unauthorized access, change or destruction."
+            },
+            "program_focus": {
+              "value": "Defensive Cyber Operations, Offensive Cyber Operations",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_quote": "Demonstrate competency applying Cybersecurity fundamentals and best practices in various computing platforms and infrastructure. Demonstrate competency in using various cybersecurity tools related to secure architecture, vulnerability management, intrusion detection and prevention, and incident response."
+            },
+            "program_focus_details": {
+              "value": "The Cybersecurity Certificate prepares students to recognize Cybersecurity threats and implement procedures to protect computers, networks, programs and data from unintended or unauthorized access, change or destruction.",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_quote": "The Cybersecurity Certificate prepares students to recognize Cybersecurity threats and implement procedures to protect computers, networks, programs and data from unintended or unauthorized access, change or destruction."
+            },
+            "program_level": {
+              "value": "Undergraduate Certificate",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_quote": "The Cybersecurity Certificate prepares students to recognize Cybersecurity threats and implement procedures to protect computers, networks, programs and data from unintended or unauthorized access, change or destruction."
+            },
+            "credential_awarded": {
+              "value": "Cybersecurity Certificate",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_quote": "Cybersecurity Certificate"
+            },
+            "prerequisites": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "num_courses": {
+              "value": "5",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_quote": "Required courses are listed in suggested sequence: (17 units) CIS 190 C IT and Cybersecurity Funds 4 CIS 230 C Cisco Networking 1 4 CIS 195 C Network Security 3 CIS 196 C Ethical Hacking 3 CIS 247 C Python Programming 3"
+            },
+            "courses": {
+              "value": "IT and Cybersecurity Funds, Cisco Networking 1, Network Security, Ethical Hacking, Python Programming",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_quote": "CIS 190 C IT and Cybersecurity Funds 4 CIS 230 C Cisco Networking 1 4 CIS 195 C Network Security 3 CIS 196 C Ethical Hacking 3 CIS 247 C Python Programming 3"
+            },
+            "notable_courses": {
+              "value": "Required Courses:\nCIS 190 C: IT and Cybersecurity Funds\nCIS 230 C: Cisco Networking 1\nCIS 195 C: Network Security\nCIS 196 C: Ethical Hacking\nCIS 247 C: Python Programming",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_quote": "Code Title Units Required courses are listed in suggested sequence: (17 units) CIS 190 C IT and Cybersecurity Funds 4 CIS 230 C Cisco Networking 1 4 CIS 195 C Network Security 3 CIS 196 C Ethical Hacking 3 CIS 247 C Python Programming 3"
+            },
+            "class_duration": {
+              "value": "17 Units",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_quote": "This certificate requires a total of 17 units."
+            },
+            "min_completion_time": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "program_flexibility": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "cost_per_class_short": {
+              "value": "$46 per unit",
+              "source_url": "https://www.cypresscollege.edu/admissions-records/enrollment-fees/",
+              "source_quote": "Enrollment Fee: $46 per unit (Waived for CCPG recipients)"
+            },
+            "cost_per_class_long": {
+              "value": "$396 per unit",
+              "source_url": "https://www.cypresscollege.edu/admissions-records/enrollment-fees/",
+              "source_quote": "Non-Resident Fees: $396 per unit, plus $25 capital outlay fee per Ed Code 76141"
+            },
+            "total_cost": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "delivery_mode": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "in_person_requirement": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "enrollment_options": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "program_managed_by": {
+              "value": "Business and Computer Information Systems",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "Division: Business and Computer Information Systems"
+            },
+            "nsa_cae_cd_accredited": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "cert_prep": {
+              "value": "Yes, prepares for ITF+, A+, Security+, and CySA+.",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_quote": "It will also enhance students' chances to pursue a professional career in Cybersecurity by preparing them for industry-recognized certificates such as ITF+, A+, Security+, and CySA+."
+            },
+            "stackable": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "stackable_details": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "num_fulltime_faculty": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "faculty_details": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "cert_graduation_requirements": {
+              "value": "To earn a certificate, complete the required courses as listed with a grade of C or better. At least 50% of all course work must be completed at Cypress College.",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_quote": "To earn a certificate, complete the required courses as listed with a grade of C or better. At least 50% of all course work must be completed at Cypress College."
+            },
+            "program_curriculum": {
+              "value": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_quote": "Cybersecurity Certificate"
+            },
+            "scholarships_available": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "finance_options": {
+              "value": "Financial Aid Eligible",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+              "source_quote": "Financial Aid Eligible"
+            }
+          },
+          "row": {
+            "Institution": "Cypress College",
+            "Program Name": "Cybersecurity Certificate",
+            "Admissions Contact": "admissions@cypresscollege.edu",
+            "Program Type": "Undergraduate Certificate",
+            "Program Focus": "Defensive Cyber Operations, Offensive Cyber Operations",
+            "Program Focus in Details": "The Cybersecurity Certificate prepares students to recognize Cybersecurity threats and implement procedures to protect computers, networks, programs and data from unintended or unauthorized access, change or destruction.",
+            "Program Level": "Undergraduate Certificate",
+            "Credential Awarded": "Cybersecurity Certificate",
+            "Prerequisites": "Not Found",
+            "# Courses": "5",
+            "Courses": "IT and Cybersecurity Funds, Cisco Networking 1, Network Security, Ethical Hacking, Python Programming",
+            "Notable Courses": "Required Courses:\nCIS 190 C: IT and Cybersecurity Funds\nCIS 230 C: Cisco Networking 1\nCIS 195 C: Network Security\nCIS 196 C: Ethical Hacking\nCIS 247 C: Python Programming",
+            "Class Duration": "17 Units",
+            "Min Completion Time": "Not Found",
+            "Program Flexibility": "Not Found",
+            "Cost Per Class Short": "$46 per unit",
+            "Cost Per Class Long": "$396 per unit",
+            "Total Cost": "Not Found",
+            "Delivery Mode": "Not Found",
+            "In-Person Requirement (Yes or No)": "Not Found",
+            "Enrollment Options": "Not Found",
+            "Program Managed By": "Business and Computer Information Systems",
+            "NSA CAE-CD Accredited?": "Not Found",
+            "Cert Prep": "Yes, prepares for ITF+, A+, Security+, and CySA+.",
+            "Stackable": "Not Found",
+            "Stackable Details": "Not Found",
+            "# of Full-time Faculty": "Not Found",
+            "Faculty Details": "Not Found",
+            "Certificate Graduation Requirements": "To earn a certificate, complete the required courses as listed with a grade of C or better. At least 50% of all course work must be completed at Cypress College.",
+            "Program Curriculum": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-security-certificate/",
+            "Scholarships Available": "Not Found",
+            "Finance Options": "Financial Aid Eligible"
+          }
+        },
+        {
+          "program_name": "Cyber Defense Certificate",
+          "program_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+          "discovery": {
+            "program_name": "Cyber Defense Certificate",
+            "program_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+            "tuition_url": "https://www.cypresscollege.edu/admissions-records/enrollment-fees/",
+            "faculty_url": "https://catalog.nocccd.edu/cypress-college/faculty-and-administration/",
+            "admissions_url": "https://www.cypresscollege.edu/admissions-records/",
+            "program_type": "Undergraduate Certificate",
+            "is_valid_certificate": "Yes",
+            "rejection_reason": null,
+            "context_urls": [
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-associate-in-science-degree/",
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/devseops-development-security-and-operations-certificate/",
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/aviation-travel-careers/homeland-transportation-security-certificate/",
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/administration-justice/career-technical-education-homeland-security-associate-in-science-degree/",
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/www.assist.org",
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/theater-arts/",
+              "https://catalog.nocccd.edu/cypress-college/degrees-certificates/spanish/"
+            ],
+            "validation_status": "Valid",
+            "validation_reason": "OK"
+          },
+          "fields": {
+            "institution": {
+              "value": "Cypress College",
+              "source_url": "https://www.cypresscollege.edu/admissions-records/enrollment-fees/",
+              "source_quote": "©2026 Cypress College. 9200 Valley View Street, Cypress, CA 90630."
+            },
+            "program_name": {
+              "value": "Cyber Defense Certificate",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "Cyber Defense Certificate"
+            },
+            "admissions_contact": {
+              "value": "E: admissions@cypresscollege.edu\nT: (714) 484-7346",
+              "source_url": "https://www.cypresscollege.edu/admissions-records/",
+              "source_quote": "Contact A&R\n\nOnline: Live Help\n\nE: admissions@cypresscollege.edu\n\nT: (714) 484-7346"
+            },
+            "program_type": {
+              "value": "Undergraduate Certificate",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "The Cyber Defense Certificate provides concepts and hands-on skills to identify Cybersecurity threats and implement procedures to protect Cyber assets."
+            },
+            "program_focus": {
+              "value": "Network Security, Ethical Hacking, Cisco Networking, System Administration, DevSecOps, Cloud Computing",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "Required core courses (8 units): CIS 190 C IT and Cybersecurity Funds 4 CIS 230 C Cisco Networking 1 4 Elective core courses (9 units) CIS 195 C Network Security 3 CIS 196 C Ethical Hacking 3 CIS 247 C Python Programming 3"
+            },
+            "program_focus_details": {
+              "value": "The Cyber Defense Certificate provides concepts and hands-on skills to identify Cybersecurity threats and implement procedures to protect Cyber assets. It will also enhance students' chances to pursue a professional career in Cybersecurity by giving them various options to prepare for industry-recognized certificates such as CompTIA ITF+, Network+, Security+, CySA+, Project+, Cisco CCNA and CyberOps, and AWS Certified Cloud Practitioner and Certified Solutions Architect – Associate.",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "The Cyber Defense Certificate provides concepts and hands-on skills to identify Cybersecurity threats and implement procedures to protect Cyber assets. It will also enhance students' chances to pursue a professional career in Cybersecurity by giving them various options to prepare for industry-recognized certificates such as CompTIA ITF+, Network+, Security+, CySA+, Project+, Cisco CCNA and CyberOps, and AWS Certified Cloud Practitioner and Certified Solutions Architect – Associate."
+            },
+            "program_level": {
+              "value": "Undergraduate Certificate",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "The Cyber Defense Certificate provides concepts and hands-on skills to identify Cybersecurity threats and implement procedures to protect Cyber assets."
+            },
+            "credential_awarded": {
+              "value": "Cyber Defense Certificate",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "Cyber Defense Certificate"
+            },
+            "prerequisites": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "num_courses": {
+              "value": "8",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "Complete the required and elective core courses and one area of emphasis (26 to 28 units)"
+            },
+            "courses": {
+              "value": "CIS 190 C, CIS 230 C, CIS 195 C, CIS 196 C, CIS 247 C, CIS 231 C, CIS 232 C, CIS 233 C, CIS 239 C, CIS 258 C, CIS 164 C, CIS 185 C, CIS 189 C, CIS 243 C, CIS 110 C, CIS 257 C, CIS 226 C, CIS 256 C, CIS 259 C, CIS 274 C, CIS 275 C, CIS 201 C, CIS 202 C",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "Course List Code Title Units"
+            },
+            "notable_courses": {
+              "value": "Required Courses:\nCIS 190 C: IT and Cybersecurity Funds\nCIS 230 C: Cisco Networking 1\nElectives (Pick three):\nCIS 195 C: Network Security\nCIS 196 C: Ethical Hacking\nCIS 247 C: Python Programming",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "Required core courses (8 units): CIS 190 C IT and Cybersecurity Funds 4 CIS 230 C Cisco Networking 1 4 Elective core courses (9 units) CIS 195 C Network Security 3 CIS 196 C Ethical Hacking 3 CIS 247 C Python Programming 3"
+            },
+            "class_duration": {
+              "value": "26-28 Units",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "This certificate requires a total of 26-28 units."
+            },
+            "min_completion_time": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "program_flexibility": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "cost_per_class_short": {
+              "value": "$46 per unit",
+              "source_url": "https://www.cypresscollege.edu/admissions-records/enrollment-fees/",
+              "source_quote": "Enrollment Fee: $46 per unit"
+            },
+            "cost_per_class_long": {
+              "value": "$396 per unit",
+              "source_url": "https://www.cypresscollege.edu/admissions-records/enrollment-fees/",
+              "source_quote": "Non-Resident Fees: $396 per unit"
+            },
+            "total_cost": {
+              "value": "$1,196 - $1,288 (in-state)",
+              "source_url": "https://www.cypresscollege.edu/admissions-records/enrollment-fees/",
+              "source_quote": "Enrollment Fee: $46 per unit"
+            },
+            "delivery_mode": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "in_person_requirement": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "enrollment_options": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "program_managed_by": {
+              "value": "Business and Computer Information Systems",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "Division: Business and Computer Information Systems"
+            },
+            "nsa_cae_cd_accredited": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "cert_prep": {
+              "value": "Yes, prepares for CompTIA ITF+, Network+, Security+, CySA+, Project+, Cisco CCNA and CyberOps, and AWS Certified Cloud Practitioner and Certified Solutions Architect – Associate.",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "It will also enhance students' chances to pursue a professional career in Cybersecurity by giving them various options to prepare for industry-recognized certificates such as CompTIA ITF+, Network+, Security+, CySA+, Project+, Cisco CCNA and CyberOps, and AWS Certified Cloud Practitioner and Certified Solutions Architect – Associate."
+            },
+            "stackable": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "stackable_details": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "num_fulltime_faculty": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "faculty_details": {
+              "value": "Alizadeh, Rassoul (Russ) – Computer Information Systems (CIS)\nIzadi, Behzad — Computer Information Systems\nJohannsen, Jonathan - Computer Information Systems/Computer Science\nMoady, Alireza — Computer Information Systems\nMolnar, Peter - Computer Information Systems\nWu, Penn — Computer Information Systems",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/faculty-and-administration/",
+              "source_quote": "Alizadeh, Rassoul (Russ) – Computer Information Systems (CIS)\nB.A., St. Mary's University of San Antonio, Texas\nM.S., St. Mary's University of San Antonio, Texas\nIzadi, Behzad — Computer Information Systems\nB.S., University of Washington, Seattle\nM.S., University of California, Davis\nPh.D., Colorado State University, Fort Collins\nJohannsen, Jonathan - Computer Information Systems/Computer Science\nB.S., Biola University\nM.S., California State Polytechnic University, Pomona\nMoady, Alireza — Computer Information Systems\nB.A., Pars College\nM.S., Florida Institute of Technology\nPh.D., United States International University\nMolnar, Peter - Computer Information Systems\nA.A., Cypress College\nB.S., California State University, Long Beach\nWu, Penn — Computer Information Systems\nPh.D., Nova Southeastern University"
+            },
+            "cert_graduation_requirements": {
+              "value": "To earn a certificate, complete the required courses as listed with a grade of C or better. At least 50% of all course work must be completed at Cypress College.",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "To earn a certificate, complete the required courses as listed with a grade of C or better. At least 50% of all course work must be completed at Cypress College."
+            },
+            "program_curriculum": {
+              "value": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/"
+            },
+            "scholarships_available": {
+              "value": "Not Found",
+              "source_url": "Not Found",
+              "source_quote": "Not Found"
+            },
+            "finance_options": {
+              "value": "Financial Aid Eligible",
+              "source_url": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+              "source_quote": "Financial Aid Eligible"
+            }
+          },
+          "row": {
+            "Institution": "Cypress College",
+            "Program Name": "Cyber Defense Certificate",
+            "Admissions Contact": "E: admissions@cypresscollege.edu\nT: (714) 484-7346",
+            "Program Type": "Undergraduate Certificate",
+            "Program Focus": "Network Security, Ethical Hacking, Cisco Networking, System Administration, DevSecOps, Cloud Computing",
+            "Program Focus in Details": "The Cyber Defense Certificate provides concepts and hands-on skills to identify Cybersecurity threats and implement procedures to protect Cyber assets. It will also enhance students' chances to pursue a professional career in Cybersecurity by giving them various options to prepare for industry-recognized certificates such as CompTIA ITF+, Network+, Security+, CySA+, Project+, Cisco CCNA and CyberOps, and AWS Certified Cloud Practitioner and Certified Solutions Architect – Associate.",
+            "Program Level": "Undergraduate Certificate",
+            "Credential Awarded": "Cyber Defense Certificate",
+            "Prerequisites": "Not Found",
+            "# Courses": "8",
+            "Courses": "CIS 190 C, CIS 230 C, CIS 195 C, CIS 196 C, CIS 247 C, CIS 231 C, CIS 232 C, CIS 233 C, CIS 239 C, CIS 258 C, CIS 164 C, CIS 185 C, CIS 189 C, CIS 243 C, CIS 110 C, CIS 257 C, CIS 226 C, CIS 256 C, CIS 259 C, CIS 274 C, CIS 275 C, CIS 201 C, CIS 202 C",
+            "Notable Courses": "Required Courses:\nCIS 190 C: IT and Cybersecurity Funds\nCIS 230 C: Cisco Networking 1\nElectives (Pick three):\nCIS 195 C: Network Security\nCIS 196 C: Ethical Hacking\nCIS 247 C: Python Programming",
+            "Class Duration": "26-28 Units",
+            "Min Completion Time": "Not Found",
+            "Program Flexibility": "Not Found",
+            "Cost Per Class Short": "$46 per unit",
+            "Cost Per Class Long": "$396 per unit",
+            "Total Cost": "$1,196 - $1,288 (in-state)",
+            "Delivery Mode": "Not Found",
+            "In-Person Requirement (Yes or No)": "Not Found",
+            "Enrollment Options": "Not Found",
+            "Program Managed By": "Business and Computer Information Systems",
+            "NSA CAE-CD Accredited?": "Not Found",
+            "Cert Prep": "Yes, prepares for CompTIA ITF+, Network+, Security+, CySA+, Project+, Cisco CCNA and CyberOps, and AWS Certified Cloud Practitioner and Certified Solutions Architect – Associate.",
+            "Stackable": "Not Found",
+            "Stackable Details": "Not Found",
+            "# of Full-time Faculty": "Not Found",
+            "Faculty Details": "Alizadeh, Rassoul (Russ) – Computer Information Systems (CIS)\nIzadi, Behzad — Computer Information Systems\nJohannsen, Jonathan - Computer Information Systems/Computer Science\nMoady, Alireza — Computer Information Systems\nMolnar, Peter - Computer Information Systems\nWu, Penn — Computer Information Systems",
+            "Certificate Graduation Requirements": "To earn a certificate, complete the required courses as listed with a grade of C or better. At least 50% of all course work must be completed at Cypress College.",
+            "Program Curriculum": "https://catalog.nocccd.edu/cypress-college/degrees-certificates/computer-information-systems/cyber-defense-certificate/",
+            "Scholarships Available": "Not Found",
+            "Finance Options": "Financial Aid Eligible"
+          }
+        }
+      ],
+      "csv_paths": {
+        "discovery_csv": "/home/traderx/Downloads/Answesha/University_Aggregator/backend/app/outputs/cypress_college/cypress_college_discovery.csv",
+        "full_csv": "/home/traderx/Downloads/Answesha/University_Aggregator/backend/app/outputs/cypress_college/cypress_college_cybersecurity_full.csv"
+      },
+      "found_field_count": 19,
+      "retry_applied": true
+    },
+    "error": null
+  }

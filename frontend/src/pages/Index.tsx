@@ -13,6 +13,7 @@ import { ErrorState } from "@/components/ErrorState";
 export default function Index() {
   const [run, setRun] = useState<Run | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedProgramIndex, setSelectedProgramIndex] = useState(0);
 
   const isTerminal = run && (run.status === "completed" || run.status === "failed" || run.status === "invalid_program");
 
@@ -44,6 +45,15 @@ export default function Index() {
 
   const isCompleted = run?.status === "completed" && run.result;
   const isFailed = run?.status === "failed" || run?.status === "invalid_program";
+  const programs = run?.result?.programs ?? [];
+  const selectedProgram =
+    programs.length > 0
+      ? programs[Math.min(selectedProgramIndex, programs.length - 1)]
+      : null;
+
+  useEffect(() => {
+    setSelectedProgramIndex(0);
+  }, [run?.run_id]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -71,15 +81,20 @@ export default function Index() {
         {isCompleted && run.result && (
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <ProgramSummary result={run.result} />
-              <DiscoveryLinks discovery={run.result.discovery} />
+              <ProgramSummary
+                result={run.result}
+                programs={programs}
+                selectedProgramIndex={selectedProgramIndex}
+                onProgramChange={setSelectedProgramIndex}
+              />
+              <DiscoveryLinks discovery={selectedProgram?.discovery ?? run.result.discovery} />
             </div>
 
             
 
             <div>
               <h2 className="text-lg font-semibold mb-3">Extracted Fields</h2>
-              <FieldsTable fields={run.result.fields} />
+              <FieldsTable fields={selectedProgram?.fields ?? run.result.fields} />
             </div>
           </div>
         )}
